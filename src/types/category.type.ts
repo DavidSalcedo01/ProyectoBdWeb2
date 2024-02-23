@@ -6,4 +6,11 @@ export type Category = {
   description?: string
 }
 
+export type User = {
+  id?: string
+  name: string
+  email?: string
+}
+
 export type CategoryModel = Model<Category>
+export type UserModel = Model<User>

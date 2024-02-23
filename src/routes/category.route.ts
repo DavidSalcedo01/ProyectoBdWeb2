@@ -1,5 +1,5 @@
 import express from 'express'
-import { Category } from '../types/category.type'
+import { Category, User } from '../types/category.type'
 import CategoryService from '../services/category.service'
 
 const router = express.Router()
@@ -38,5 +38,14 @@ router.get('/', async (req, res, next) => {
     next(error)
   }
 })
+
+//---------------------------------------------
+router.post('/user', async (req, res) => {
+  const user: User = req.body
+  const newCategory = await service.create(user)
+
+  res.status(201).json(newCategory)
+})
+
 
 export default router

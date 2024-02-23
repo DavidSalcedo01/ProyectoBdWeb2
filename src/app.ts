@@ -9,18 +9,20 @@ import routerApi from './routes'
 import { config } from './config/config'
 
 const { mongoUri, port } = config
+const PORT=3010
+const MONGO_URI='mongodb://localhost:27017/proyecto-bd-web-2'
 
 const app = express()
 
 const connectDB = () => {
-  mongoose.connect(mongoUri)
+  mongoose.connect(MONGO_URI)
 }
 
 app.use(express.json())
 routerApi(app)
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`)
   connectDB()
 })
 
